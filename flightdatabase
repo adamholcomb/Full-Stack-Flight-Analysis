@@ -1,0 +1,13 @@
+CREATE TABLE FLIGHT(
+	sno INT,
+	origin_name VARCHAR(50),
+	origin_iata VARCHAR(50),
+	dest_home VARCHAR(50),
+	dest_iata VARCHAR(50),
+	min_price_usd INT,
+	carrier VARCHAR(50),
+	origin_gps VARCHAR(50),
+	dest_gps VARCHAR(50)
+
+);
+Select * from FLIGHT
