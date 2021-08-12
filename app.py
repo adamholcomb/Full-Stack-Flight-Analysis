@@ -3,6 +3,7 @@ import pandas as pd
 import sqlalchemy
 from sqlalchemy import create_engine
 from flask import Flask
+from flask_cors import CORS
 
 ########################################################################
 # Configure database connection
@@ -13,6 +14,7 @@ conn = engine.connect()
 ########################################################################
 # Configure Flask server
 app = Flask(__name__)
+CORS(app)
 
 ########################################################################
 # Build routes
