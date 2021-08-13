@@ -55,6 +55,16 @@ def test3():
     
     return(data.to_json())
 
+@app.route("/visualization4")
+def test4():
+    data = pd.read_sql("SELECT DISTINCT(origin_name) FROM flight", conn)
+
+
+    # ADD CODE HERE TO FORMAT DATA FOR VISUALIZATION 3
+
+    
+    return(data.to_json())
+
 
 
 if __name__ == "__main__":
