@@ -64,35 +64,37 @@ d3.json(bar_url).then(function (response) {
     let config = {
         type: 'bar',
         data: data,
-        
-        scales: {
-            x: {
-              display: true,
-              title: {
-                display: true,
-                text: 'Flights Destination',
-                font: {size:14}
-              }
+        options:{
+            scales: {
+                x: {
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'Flights Destination',
+                    font: {size:20}
+                  }
+                },
+                y: {
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'Flight Cost',
+                    font: {size:20},
+                    style: 'bold'
+                  }
+                }
             },
-            y: {
-              display: true,
-              title: {
-                display: true,
-                text: 'Flight Cost',
-                font: {size:14}
-              }
-            }
-        },
-
-        options: {
             responsive: true,
             plugins: {
                 legend: {
-                    position: 'top',
+                    position: 'top middle',
                 },
                 title: {
                     display: true,
-                    text: 'Bar Chart Display - Flight Data'
+                    text: 'Bar Chart Display - Flight Data',
+                    weight: 'normal',
+                    font: {size:24},
+                    style: 'bold'
                 }
             }
         },
