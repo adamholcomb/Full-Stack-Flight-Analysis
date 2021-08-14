@@ -1,7 +1,7 @@
 // Javascript
 
-// Bubble Chart
-bubbleurl = 'http://127.0.0.1:5000/visualization3'
+// Bar Chart
+bubbleurl = 'http://127.0.0.1:5000/visualization1'
 
 d3.json(bubbleurl).then(function(response) {
     console.log(response)
