@@ -1,17 +1,44 @@
 // Javascript
-// import Plotly
 // Bar Chart
 bar_url = 'http://127.0.0.1:5000/visualization2'
 
+d3.selectAll('#selDataset').on("change", updatePlot)
+
+function updatePlot(){
 d3.json(bar_url).then(function (response) {
     console.log(response)
-     
-    const labels = [1,2,3,4,5,6,7];
-    const data = {
+    document.getElementById('myChartDiv').innerHTML = '<canvas id="myChart"></canvas>' 
+
+    // if (myChart){
+    //     myChart.destroy()
+    // }
+
+    let origin = d3.select("#selDataset").property("value")
+    console.log(origin)
+    // let origin = "Houston George Bush Intercntl."
+    let destination = []
+    let price = []
+    for (i=0;i<Object.keys(response['origin_name']).length;i++){
+        if (response['origin_name'][String(i)] == origin){
+
+            destination.push(response['dest_home'][String(i)])
+            price.push(response['min_price_usd'][String(i)])
+
+        }
+    }
+
+    // destination = Object.values(response['dest_home'])
+    console.log("Destinations: ", destination)
+
+    // price = Object.values(response['min_price_usd'])
+    console.log("Prices: ", price)
+
+    let labels = destination;
+    let data = {
         labels: labels,
         datasets: [{
-            label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            label: 'Flight Cost',
+            data: price,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(255, 159, 64, 0.2)',
@@ -33,27 +60,50 @@ d3.json(bar_url).then(function (response) {
             borderWidth: 1
         }]
     };
-    
-    const config = {
+
+    let config = {
         type: 'bar',
         data: data,
-        options: {
+        options:{
+            scales: {
+                x: {
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'Flights Destination',
+                    font: {size:20}
+                  }
+                },
+                y: {
+                  display: true,
+                  title: {
+                    display: true,
+                    text: 'Flight Cost',
+                    font: {size:20},
+                    style: 'bold'
+                  }
+                }
+            },
             responsive: true,
             plugins: {
                 legend: {
-                    position: 'top',
+                    position: 'top middle',
                 },
                 title: {
                     display: true,
-                    text: 'Chart.js Bar Chart'
+                    text: 'Bar Chart Display - Flight Data',
+                    weight: 'normal',
+                    font: {size:24},
+                    style: 'bold'
                 }
             }
         },
     };
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('myChart'),
         config
       );
 
 })
+}
