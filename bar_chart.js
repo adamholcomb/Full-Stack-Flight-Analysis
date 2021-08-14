@@ -1,19 +1,42 @@
 // Javascript
-// import Plotly
 // Bar Chart
 bar_url = 'http://127.0.0.1:5000/visualization2'
 
+d3.selectAll('#selDataset').on("change", updatePlot)
+
+function updatePlot(){
 d3.json(bar_url).then(function (response) {
     console.log(response)
-     
-    destination = Object.values(response['dest_home'])
-    console.log(destination)
+    document.getElementById('myChartDiv').innerHTML = '<canvas id="myChart"></canvas>' 
 
-    price = Object.values(response['min_price_usd'])
-    console.log(price)
+    // if (myChart){
+    //     myChart.destroy()
+    // }
 
-    const labels = destination;
-    const data = {
+
+
+    let origin = d3.select("#selDataset").property("value")
+    console.log(origin)
+    // let origin = "Houston George Bush Intercntl."
+    let destination = []
+    let price = []
+    for (i=0;i<Object.keys(response['origin_name']).length;i++){
+        if (response['origin_name'][String(i)] == origin){
+
+            destination.push(response['origin_name'][String(i)])
+            price.push(response['min_price_usd'][String(i)])
+
+        }
+    }
+
+    // destination = Object.values(response['dest_home'])
+    console.log("Destinations: ", destination)
+
+    // price = Object.values(response['min_price_usd'])
+    console.log("Prices: ", price)
+
+    let labels = destination;
+    let data = {
         labels: labels,
         datasets: [{
             label: 'Cheapest and Expensive Flights',
@@ -40,7 +63,7 @@ d3.json(bar_url).then(function (response) {
         }]
     };
 
-    const config = {
+    let config = {
         type: 'bar',
         data: data,
         scales: {
@@ -75,9 +98,10 @@ d3.json(bar_url).then(function (response) {
         },
     };
 
-    var myChart = new Chart(
+    let myChart = new Chart(
         document.getElementById('myChart'),
         config
       );
 
 })
+}
