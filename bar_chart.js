@@ -6,12 +6,25 @@ bar_url = 'http://127.0.0.1:5000/visualization2'
 d3.json(bar_url).then(function (response) {
     console.log(response)
      
-    const labels = [1,2,3,4,5,6,7];
+    destination = Object.values(response['dest_home'])
+    console.log(destination)
+
+    price = Object.values(response['min_price_usd'])
+    console.log(price)
+
+    // carriers = Object.keys(min_cost)
+    // console.log(carriers)
+    
+    // const coords = flightCount.map((el, index)=> [el, minCost[index]]);
+    // console.log(coords);
+
+
+    const labels = destination;
     const data = {
         labels: labels,
         datasets: [{
             label: 'My First Dataset',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: price,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(255, 159, 64, 0.2)',
@@ -33,7 +46,7 @@ d3.json(bar_url).then(function (response) {
             borderWidth: 1
         }]
     };
-    
+
     const config = {
         type: 'bar',
         data: data,
@@ -45,7 +58,7 @@ d3.json(bar_url).then(function (response) {
                 },
                 title: {
                     display: true,
-                    text: 'Chart.js Bar Chart'
+                    text: 'Bar Chart Display'
                 }
             }
         },
