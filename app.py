@@ -4,10 +4,11 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from flask import Flask
 from flask_cors import CORS
+from config import rds_string
 
 ########################################################################
 # Configure database connection
-rds_string = "postgresql://postgres:postgres@localhost:5432/flight_db"
+# rds_string = "postgresql://postgres:postgres@localhost:5432/flight_db"
 engine = create_engine(rds_string)
 conn = engine.connect()
 
@@ -59,7 +60,7 @@ def test3():
 def test4():
     data = pd.read_sql("SELECT DISTINCT(origin_name) FROM flight", conn)
 
-
+    print(data)
     # ADD CODE HERE TO FORMAT DATA FOR VISUALIZATION 3
 
     
