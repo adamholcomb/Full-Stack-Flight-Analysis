@@ -2,7 +2,6 @@
 
 // Bubble Chart
 bubbleurl = 'http://127.0.0.1:5000/visualization3'
-// bubbleurl = 'index.html/visualization3'
 
 d3.json(bubbleurl).then(response => {
     console.log(response)
