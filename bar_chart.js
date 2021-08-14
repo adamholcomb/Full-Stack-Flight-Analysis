@@ -13,8 +13,6 @@ d3.json(bar_url).then(function (response) {
     //     myChart.destroy()
     // }
 
-
-
     let origin = d3.select("#selDataset").property("value")
     console.log(origin)
     // let origin = "Houston George Bush Intercntl."
@@ -23,7 +21,7 @@ d3.json(bar_url).then(function (response) {
     for (i=0;i<Object.keys(response['origin_name']).length;i++){
         if (response['origin_name'][String(i)] == origin){
 
-            destination.push(response['origin_name'][String(i)])
+            destination.push(response['dest_home'][String(i)])
             price.push(response['min_price_usd'][String(i)])
 
         }
@@ -39,7 +37,7 @@ d3.json(bar_url).then(function (response) {
     let data = {
         labels: labels,
         datasets: [{
-            label: 'Cheapest and Expensive Flights',
+            label: 'Flight Cost',
             data: price,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -66,6 +64,7 @@ d3.json(bar_url).then(function (response) {
     let config = {
         type: 'bar',
         data: data,
+        
         scales: {
             x: {
               display: true,
@@ -84,6 +83,7 @@ d3.json(bar_url).then(function (response) {
               }
             }
         },
+
         options: {
             responsive: true,
             plugins: {
@@ -92,7 +92,7 @@ d3.json(bar_url).then(function (response) {
                 },
                 title: {
                     display: true,
-                    text: 'Bar Chart Display'
+                    text: 'Bar Chart Display - Flight Data'
                 }
             }
         },
