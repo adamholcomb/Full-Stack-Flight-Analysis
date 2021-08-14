@@ -28,8 +28,3 @@ d3.json(bubbleurl).then(function(response) {
         }]
     };
 })
-
-var dropdownMenu = d3.select('#selDataset');
-
-var dataset = dropdownMenu.property("value");
-console.log(dataset)
