@@ -23,7 +23,7 @@ d3.json(bar_url).then(function (response) {
     const data = {
         labels: labels,
         datasets: [{
-            label: 'My First Dataset',
+            label: 'Cheapest and Expensive Flights',
             data: price,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -50,6 +50,24 @@ d3.json(bar_url).then(function (response) {
     const config = {
         type: 'bar',
         data: data,
+        scales: {
+            x: {
+              display: true,
+              title: {
+                display: true,
+                text: 'Flights Destination',
+                font: {size:14}
+              }
+            },
+            y: {
+              display: true,
+              title: {
+                display: true,
+                text: 'Flight Cost',
+                font: {size:14}
+              }
+            }
+        },
         options: {
             responsive: true,
             plugins: {
