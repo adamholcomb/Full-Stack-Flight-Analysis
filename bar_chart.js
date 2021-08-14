@@ -12,13 +12,6 @@ d3.json(bar_url).then(function (response) {
     price = Object.values(response['min_price_usd'])
     console.log(price)
 
-    // carriers = Object.keys(min_cost)
-    // console.log(carriers)
-    
-    // const coords = flightCount.map((el, index)=> [el, minCost[index]]);
-    // console.log(coords);
-
-
     const labels = destination;
     const data = {
         labels: labels,
