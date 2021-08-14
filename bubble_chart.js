@@ -5,6 +5,7 @@ bubbleurl = 'http://127.0.0.1:5000/visualization3'
 
 d3.json(bubbleurl).then(response => {
     console.log(response)
+    document.getElementById('myBubbleDiv').innerHTML = '<canvas id="myBubble"></canvas>'
 
     var flight_count = response['flight_count']
     console.log(response[flight_count])
@@ -104,8 +105,8 @@ d3.json(bubbleurl).then(response => {
         }
     };
 
-    var myChart = new Chart(
-        document.getElementById('myChart'),
+    let myBubble = new Chart(
+        document.getElementById('myBubble'),
         config
       );
 
