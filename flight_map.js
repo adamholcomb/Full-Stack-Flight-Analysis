@@ -1,7 +1,7 @@
 // Javascript
 
 // 
-const flighturl = 'http://127.0.0.1:5000/visualization1'
+const flighturl2 = 'http://127.0.0.1:5000/visualization1'
 
 let myMap = L.map("map", {
     center: [39.52, -98.67],
@@ -14,7 +14,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 
-d3.json(flighturl).then(function(response) {
+d3.json(flighturl2).then(function(response) {
+    
     let origin_data_list = Object.values(response.origin_gps)
     let dest_data_list = Object.values(response.dest_gps) 
     //console.log(response)
