@@ -3,7 +3,10 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Geo JSON</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Flight Data</title>
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -23,36 +26,46 @@
 </head>
 
 <body>
-  <!-- Dropdown Menu
-  ["HOU-iata","JFK-iata","LAX-iata","DFW-iata","DEN-iata"]-->
-  <select id="selDataset">
-    <option value="Houston George Bush Intercntl.">Houston George Bush Intercntl.</option>
-    <option value="New York John F. Kennedy">New York John F. Kennedy</option>
-    <option value="Los Angeles International">Los Angeles International</option>
-    <option value="Dallas Fort Worth International">Dallas Fort Worth International</option>
-    <option value="Denver International">Denver International</option>
-  </select>
-  <!-- The div where we'll insert our map -->
-  <div id="map"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Flight Data Dashboard</h1>
+        <p>Use the interactive map and charts below to explore the dataset showing cheapest flight data and routes
+        from the origing Airport to your favorite destinations</p>
 
-  <!-- JavaScript file -->
-  <script type="text/javascript" src="logic1.js"></script>
-  <!-- <script type="text/javascript" src="bubble_chart.js"></script>
+      </div>
+    </div>
+    <!-- Dropdown Menu
+  ["HOU-iata","JFK-iata","LAX-iata","DFW-iata","DEN-iata"]-->
+  <h5>Please select your flight Origin Airport:</h5>
+  <select id="selDataset">
+      <option value="Houston George Bush Intercntl.">Houston George Bush Intercntl.</option>
+      <option value="New York John F. Kennedy">New York John F. Kennedy</option>
+      <option value="Los Angeles International">Los Angeles International</option>
+      <option value="Dallas Fort Worth International">Dallas Fort Worth International</option>
+      <option value="Denver International">Denver International</option>
+    </select>
+    <!-- The div where we'll insert our map -->
+    <div id="map"></div>
+
+    <!-- JavaScript file -->
+    <!-- <script type="text/javascript" src="logic1.js"></script> -->
+    <!-- <script type="text/javascript" src="bubble_chart.js"></script>
   <script type="text/javascript" src="flight_map.js"></script> -->
 
-  <script type="text/javascript" src="bar_chart.js"></script>
-  <script type="text/javascript" src="bubble_chart.js"></script>
-  <script type="text/javascript" src="flight_map.js"></script>
-  
-  <!-- Bar Chart -->
-  <div id="myChartDiv">
-    <canvas id="myChart"></canvas>
-  </div>
-  <!-- Bubble Chart -->
-  <div id="myBubbleDiv">
-    <canvas id="myBubble"></canvas>
-  </div>
+    <script type="text/javascript" src="bar_chart.js"></script>
+    <script type="text/javascript" src="bubble_chart.js"></script>
+    <script type="text/javascript" src="flight_map.js"></script>
 
+    <!-- Bar Chart -->
+    <div id="myChartDiv">
+      <canvas id="myChart"></canvas>
+    </div>
+    <!-- Bubble Chart -->
+    <div id="myBubbleDiv">
+      <canvas id="myBubble"></canvas>
+    </div>
+  </div>
   <!-- chart.js library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
