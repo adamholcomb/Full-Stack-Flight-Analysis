@@ -14,10 +14,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 d3.selectAll('#selDataset').on("change", updatePlot)
 
+
 function updatePlot(){
 
     d3.json(flighturl2).then(function(response) {
-
+        myMap.remove(migrationLayer)
         let dropDown = d3.select("#selDataset").property("value")
         let origin_data_list = Object.values(response.origin_gps)
         let dest_data_list = Object.values(response.dest_gps) 
@@ -67,7 +68,7 @@ function updatePlot(){
     
             if(response.origin_name[i]==dropDown){
             var data = [{"from":origingps[i],"to": destgps[i],"labels":[originname[i], destname[i]],"color":"#ff3a31","value":15}];
-            var migrationLayer = new L.migrationLayer({
+                var migrationLayer = new L.migrationLayer({
                 map: myMap,
                 data: data,
                 pulseRadius:30,
@@ -84,11 +85,6 @@ function updatePlot(){
     
         })
     }
-
-
-
-
-
 
 function init(){
 
