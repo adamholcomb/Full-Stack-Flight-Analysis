@@ -25,55 +25,43 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
+<!-- The div where we'll insert our map -->
+<div id="map"></div>
+
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Flight Data Dashboard</h1>
         <p>Use the interactive map and charts below to explore the dataset showing cheapest flight data and routes
-        from the origing Airport to your favorite destinations</p>
-
+          from the origing Airport to your favorite destinations</p>
       </div>
     </div>
+
     <!-- Dropdown Menu
   ["HOU-iata","JFK-iata","LAX-iata","DFW-iata","DEN-iata"]-->
-  <h5>Please select your flight Origin Airport:</h5>
-  <select id="selDataset">
+    <h5>Please select your flight Origin Airport:</h5>
+    <select id="selDataset">
       <option value="Houston George Bush Intercntl.">Houston George Bush Intercntl.</option>
       <option value="New York John F. Kennedy">New York John F. Kennedy</option>
       <option value="Los Angeles International">Los Angeles International</option>
       <option value="Dallas Fort Worth International">Dallas Fort Worth International</option>
       <option value="Denver International">Denver International</option>
     </select>
-    <!-- The div where we'll insert our map -->
-    <div id="map"></div>
 
+
+
+
+    <!-- <script type="text/javascript" src="logic1.js"></script>
+    <script type="text/javascript" src="bar_chart.js"></script>
+    <script type="text/javascript" src="bubble_chart.js"></script> -->
 
     <!-- JavaScript file -->
-    <!-- <script type="text/javascript" src="logic1.js"></script> -->
-    <!-- <script type="text/javascript" src="bubble_chart.js"></script>
-  <script type="text/javascript" src="flight_map.js"></script> -->
-
+    <!-- <script type="text/javascript" src="flight_map.js"></script> -->
     <script type="text/javascript" src="bar_chart.js"></script>
     <script type="text/javascript" src="bubble_chart.js"></script>
-    <script type="text/javascript" src="flight_map.js"></script>
+    <script type="text/javascript" src="test2.js"></script>
 
-  <!-- JavaScript file -->
-  
-  <script type="text/javascript" src="bar_chart.js"></script>
-  <script type="text/javascript" src="bubble_chart.js"></script>
-  <script type="text/javascript" src="flight_map.js"></script>
-
-
-  <!-- Bar Chart -->
-  <div id="myChartDiv">
-    <canvas id="myChart"></canvas>
-  </div>
-  <!-- Bubble Chart -->
-  <div id="myBubbleDiv">
-    <canvas id="myBubble"></canvas>
-  </div>
->>>>>>> 23c296eab1dce14f294109ef87a000bc27520399
 
     <!-- Bar Chart -->
     <div id="myChartDiv">
@@ -83,7 +71,10 @@
     <div id="myBubbleDiv">
       <canvas id="myBubble"></canvas>
     </div>
+
+
   </div>
+
   <!-- chart.js library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -91,5 +82,6 @@
   <script src="./dis/leaflet.migrationLayer.js"></script>
 
 </body>
+
 
 </html>
